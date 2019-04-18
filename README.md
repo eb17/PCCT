@@ -6,8 +6,9 @@ The source code of the point clould classification tool (PCCT) will soon be publ
 The paper on the code will be presented at the 80th FIG Working Week in Hanoi (22. -26. April 2019) and can be found at http://www.fig.net/fig2019/technical_program.htm.
 
 
-  @InProceedings{barnefske19,
+  ``` @InProceedings{barnefske19,
    author    = {Barnefske, E. and Sternberg, H.},
    title     = {{Generation of Training Data for {3D} Point Cloud Classification by {CNN}}},
    booktitle = {Proceedings of 80th FIG Working Week 2019, April 22-26, Vietnam.}
   }
+  ```
