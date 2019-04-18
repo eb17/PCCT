@@ -3,7 +3,7 @@ The source code of the point clould classification tool (PCCT) will soon be publ
 
 ![Alt text](Motivation.png?raw=true "Concept and Motivation")
 
-The paper on the code will be presented at the 80th FIG Working Week in Hanoi (22. -26. April 2019) and can be found at http://www.fig.net/fig2019/technical_program.htm.
+The paper on the code will be presented at the 80th FIG Working Week in Hanoi (22. -26. April 2019) and can be found at http://www.fig.net/resources/proceedings/fig_proceedings/fig2019/papers/ts02c/TS02C_barnefske_sternberg_9881.pdf.
 
 
   ```
