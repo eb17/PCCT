@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript">
+       $(document).ready(function() {
+
+        $("#save-image").click(function(e) {
+            var f = document.getElementById("klassen");
+            var objKlasse = f.options[f.selectedIndex].value;
+            objKlasse.toString()
+            bildNrsv = document.getElementById("myText").value
+            bildNrsv.toString();
+            D = document.getElementById("datenbank").value
+            D.toString();
+
+          $.ajax({
+            type: "PUT",
+            url: "/generator",
+            data: {objKlasse, bildNrsv, D},
+          })
+                   e.preventDefault();
+        });
+
+        $("#next-image").click(function(e) {
+
+            var D = document.getElementById("datenbank").value
+            console.log(D);
+            D.toString();
+
+           $.get("/generator",{D})
+           .done(function(bildNr){
+            console.log(bildNr);
+            bildNr.toString()
+            document.getElementById("myText").value = bildNr;
+
+          $.post("/generator",{"bildNr":+ bildNr , D})
+           .done(function(Bild){
+            console.log(Bild);
+            document.getElementById('imageDiv').innerHTML = '<img src="'+Bild+'" height="700" "/>';
+              });
+
+        });
+         e.preventDefault();
+        });
+
+       });
+
+
+
+    </script>
+</head>
+<h1 align="center">Point Cloud Classification Tool</h1>
+<body bgcolor="#E6E6FA">
+<br>
+<div id="imageDiv" ></div>
+<input id="myText" type="text" value="1" style="height:40px;width:100px" name="length" disabled/>
+<select id="klassen" style="height:40px;width:100px">
+    <option value="1">Tisch</option>
+    <option value="2">Wand</option>
+    <option value="3">Boden</option>
+    <option value="4">Decke</option>
+    <option value="5">Stuhl</option>
+    <option value="6">Fenster</option>
+    <option value="7">Lammellen</option>
+    <option value="8">Lampen</option>
+    <option value="9">Muelleimer</option>
+    <option value="10">Tuer</option>
+    <option value="11">Wandbehang</option>
+    <option value="12">Baeume</option>
+    <option value="13">Street_Furniture</option>
+    <option value="14">Bauwerke</option>
+    <option value="15">Bodenvegetation</option>
+    <option value="16">Auto</option>
+    <option value="17">Gehweg</option>
+    <option value="18">Strasse</option>
+    <option value="19">Stoerung</option>
+    <option value="20">Sonstiges</option>
+
+</select>
+<button id="save-image" style="height:40px;width:200px"> Speichern</button>
+<button id="next-image" style="height:40px;width:200px"> Naechstes Bild</button>
+<form>
+  <label for="datenbank">Datensatz:
+    <input type="text" id="datenbank" name="datenbank" value="D" datatype="string">
+  </label>
+</form>
+</body>
+</html>
